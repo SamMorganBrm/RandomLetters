@@ -44,6 +44,7 @@ public class RandomLetters {
                 alphabet.put(charray[i], 1);
             }
         }
+        //Display info
         System.out.println();
         System.out.println("Letters \t\tCount");
         for (Character character : alphabet.keySet()) {
