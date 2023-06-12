@@ -7,8 +7,12 @@ import java.util.Random;
 public class RandomLetters {
 
     public static void main(String[] args) {
-        generateLetter();
-        char arr[] = {'a', 'b', 'b', 'c', 'c', 'c', 'd', 'd', 'd', 'd', 'e', 'e', 'a'};
+
+        char arr[] = new char[10];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = generateLetter();
+        }
+
         displayCharArray(arr, 5);
         countOccurrence(arr);
     }
@@ -16,22 +20,17 @@ public class RandomLetters {
     public static char generateLetter() {
         Random randomNum = new Random();
         char letter = (char) (97 + randomNum.nextInt(26));
-        System.out.println(letter);
+
         return letter;
     }
 
     public static void displayCharArray(char charray[], int numPerLine) {
-        int cont = 0;
-
-        for (int i = 0; i < charray.length; i++) {
-            if (cont < numPerLine) {
-                System.out.print(charray[i] + " ");
-                cont++;
-            } else if (i < charray.length && cont == numPerLine) {
-                System.out.println("");
-                cont = 0;
-                i--;
+        int pointer = 0;
+        while (pointer < charray.length) {
+            for (int i = 0; i < numPerLine && pointer <= charray.length - 1; i++) {
+                System.out.print(charray[pointer++] + " ");
             }
+            System.out.println();
         }
     }
 
